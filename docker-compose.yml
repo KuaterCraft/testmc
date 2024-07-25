@@ -1,0 +1,23 @@
+version: "3.8"
+services:
+  minecraft:
+    image: itzg/minecraft-server
+    restart: always
+    networks:
+      - dokploy-network
+    ports:
+      - "25565:25565"
+    environment:
+      - EULA=TRUE
+      - MEMORY=2G
+      - SERVER_NAME=${MINECRAFT_HOST}
+    volumes:
+      - minecraft-data:/data
+
+volumes:
+  minecraft-data:
+    driver: local
+
+networks:
+  dokploy-network:
+    external: true
