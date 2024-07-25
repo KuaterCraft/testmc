@@ -1,0 +1,14 @@
+[
+  {
+    "uuid": "00000000-0000-0000-0009-01fb1097e6f4",
+    "name": "MOJANG867",
+    "level": 4,
+    "bypassesPlayerLimit": false
+  },
+  {
+    "uuid": "0a54a0b8-d4f3-3014-927f-d68e8ccb3a33",
+    "name": "KuaterCraft",
+    "level": 4,
+    "bypassesPlayerLimit": false
+  }
+]
