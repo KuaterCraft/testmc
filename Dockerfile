@@ -1,0 +1,8 @@
+FROM itzg/minecraft-server
+
+ENV EULA=TRUE
+ENV MEMORY=2G
+
+EXPOSE 25565
+
+VOLUME /data
