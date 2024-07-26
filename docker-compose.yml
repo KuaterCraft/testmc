@@ -1,21 +1,26 @@
 version: "3.8"
+
 services:
-  minecraft:
-    image: itzg/minecraft-server:latest
+  papermc:
+    image: itzg/minecraft-server
+    container_name: papermc
     restart: always
-    environment:
-      EULA: "TRUE"  # Automatically accept the Minecraft EULA
-      TYPE: "PAPER"  # Specify the server type as PaperMC
+    networks:
+      - dokploy-network
     ports:
-      - "25565:25565"  # Minecraft server port
+      - "25565:25565"
+    environment:
+      - EULA=TRUE
+      - MEMORY=4G
+      - TYPE=paper
+      - PAPER_VERSION=latest
     volumes:
-      - minecraft-data:/data 
+      - ./:/data  # Mount the entire repository root directory to /data
 
 volumes:
   minecraft-data:
     driver: local
 
 networks:
-  default:
-    external:
-      name: dokploy-network 
+  dokploy-network:
+    external: true
