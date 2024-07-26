@@ -11,11 +11,10 @@ services:
       - "25565:25565"
     environment:
       - EULA=TRUE
-      - MEMORY=4G
       - TYPE=paper
       - PAPER_VERSION=latest
     volumes:
-      - ./:/data  # Mount the entire repository root directory to /data
+      - ./minecraft-data:/data  # Mount the entire repository root directory to /data
 
 volumes:
   minecraft-data:
