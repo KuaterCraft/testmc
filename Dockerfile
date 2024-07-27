@@ -1,8 +1,9 @@
 FROM itzg/minecraft-server:java21-jdk
 WORKDIR /minecraft
-RUN apk add --no-cache bash
+RUN apt-get update && apt-get install -y --no-install-recommends bash \
+    && rm -rf /var/lib/apt/lists/*
 COPY ./data /minecraft
-COPY start.sh .
-RUN chmod +x start.sh
+COPY start.sh /minecraft
+RUN chmod +x /minecraft/start.sh
 EXPOSE 25565
-CMD ["./start.sh"]
+CMD ["/minecraft/start.sh"]
