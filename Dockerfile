@@ -1,4 +1,4 @@
-FROM openjdk:17-alpine
+FROM openjdk:21-alpine
 WORKDIR /minecraft
 RUN apk add --no-cache bash
 COPY ./data /minecraft
