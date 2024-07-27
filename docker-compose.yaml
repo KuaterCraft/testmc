@@ -1,25 +1,10 @@
-version: "3.8"
-
+version: '3.8'
 services:
-  papermc:
-    image: itzg/minecraft-server
-    container_name: papermc
-    restart: always
-    networks:
-      - dokploy-network
+  minecraft:
+    build: .
     ports:
       - "25565:25565"
-    environment:
-      - EULA=TRUE
-      - TYPE=paper
-      - PAPER_VERSION=latest
     volumes:
-      - ./minecraft-data:/data  # Mount the entire repository root directory to /data
-
-volumes:
-  minecraft-data:
-    driver: local
-
-networks:
-  dokploy-network:
-    external: true
+      - ./data:/minecraft
+    environment:
+      EULA: "TRUE"
