@@ -1,4 +1,4 @@
-FROM openjdk:21-alpine
+FROM itzg/minecraft-server:java21-jdk
 WORKDIR /minecraft
 RUN apk add --no-cache bash
 COPY ./data /minecraft
